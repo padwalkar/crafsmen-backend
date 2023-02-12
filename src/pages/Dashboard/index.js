@@ -3,6 +3,9 @@ import { Helmet } from "react-helmet";
 
 import Footer from "../../shared/layout/commonAssets/footer";
 import SubHeading from "../../shared/layout/commonAssets/subHeading";
+import { NavLink } from 'react-router-dom';
+import waves from '../../assets/img/waves-white.svg';
+import booking from '../../assets/img/booking.png';
 
 
 export default function Dashboard() {
@@ -10,22 +13,15 @@ export default function Dashboard() {
     return (<>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Dashboard - Crafsmen</title>
+            <title>Dashboard - Craftsmen</title>
         </Helmet>
-
-
-
-
-
-
-
 
         <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
 
             <SubHeading
-                mainApp={'Crafsmen'}
+                mainApp={'Craftsmen'}
                 pageBreadcrumb={'Dashboard'}
-                pageTitle={'Crafsmen Dashboard'}
+                pageTitle={'Craftsmen Dashboard'}
             />
 
             <div className="container-fluid py-4">
@@ -36,10 +32,9 @@ export default function Dashboard() {
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="numbers">
-                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
+                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Today's Bookings</p>
                                             <h5 className="font-weight-bolder mb-0">
                                                 $53,000
-                                                <span className="text-success text-sm font-weight-bolder">+55%</span>
                                             </h5>
                                         </div>
                                     </div>
@@ -58,10 +53,9 @@ export default function Dashboard() {
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="numbers">
-                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Customers</p>
                                             <h5 className="font-weight-bolder mb-0">
                                                 2,300
-                                                <span className="text-success text-sm font-weight-bolder">+3%</span>
                                             </h5>
                                         </div>
                                     </div>
@@ -80,10 +74,9 @@ export default function Dashboard() {
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="numbers">
-                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Contractors</p>
                                             <h5 className="font-weight-bolder mb-0">
                                                 +3,462
-                                                <span className="text-danger text-sm font-weight-bolder">-2%</span>
                                             </h5>
                                         </div>
                                     </div>
@@ -102,10 +95,9 @@ export default function Dashboard() {
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="numbers">
-                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
+                                            <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Services</p>
                                             <h5 className="font-weight-bolder mb-0">
                                                 $103,430
-                                                <span className="text-success text-sm font-weight-bolder">+5%</span>
                                             </h5>
                                         </div>
                                     </div>
@@ -126,20 +118,20 @@ export default function Dashboard() {
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="d-flex flex-column h-100">
-                                            <p className="mb-1 pt-2 text-bold">Built by developers</p>
-                                            <h5 className="font-weight-bolder">Soft UI Dashboard</h5>
-                                            <p className="mb-5">From colors, cards, typography to complex elements, you will find the full documentation.</p>
-                                            <a className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="/">
-                                                Read More
+                                            <p className="mb-1 pt-2 text-bold">Bookings</p>
+                                            <h5 className="font-weight-bolder">Bookings Made By Customers</h5>
+                                            <p className="mb-5">Here you will get all the list of bookings made by customer for the services that you offer</p>
+                                            <NavLink className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" to="/bookings-list">
+                                                All Bookings
                                                 <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                            </a>
+                                            </NavLink>
                                         </div>
                                     </div>
                                     <div className="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                                         <div className="bg-gradient-primary border-radius-lg h-100">
-                                            <img src="../assets/img/shapes/waves-white.svg" className="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves" />
+                                            <img src={waves} className="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves" />
                                             <div className="position-relative d-flex align-items-center justify-content-center h-100">
-                                                <img className="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/rocket-white.png" alt="rocket" />
+                                                <img className="position-relative z-index-2 pt-4" style={{ width: 230 }} src={booking} alt="rocket" />
                                             </div>
                                         </div>
                                     </div>
@@ -152,12 +144,12 @@ export default function Dashboard() {
                             <div className="overflow-hidden position-relative border-radius-lg bg-cover h-100">
                                 <span className="mask bg-gradient-dark"></span>
                                 <div className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                                    <h5 className="text-white font-weight-bolder mb-4 pt-2">Work with the rockets</h5>
-                                    <p className="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
-                                    <a className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="/">
+                                    <h5 className="text-white font-weight-bolder mb-4 pt-2">About Craftsmen</h5>
+                                    <p className="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of.</p>
+                                    {/* <a className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="/">
                                         Read More
                                         <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                         </div>

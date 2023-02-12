@@ -112,11 +112,11 @@ export default function ServicesType() {
     return (<>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Services Type - Crafsmen</title>
+            <title>Services Type - Craftsmen</title>
         </Helmet>
         <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
             <SubHeading
-                mainApp={'Crafsmen'}
+                mainApp={'Craftsmen'}
                 pageBreadcrumb={'Service Type'}
                 pageTitle={'Service Type List'}
             />

@@ -7,6 +7,8 @@ import Dashboard from "../../pages/Dashboard";
 import ServicesList from "../../pages/ServicesList";
 import ServicesType from '../../pages/ServicesTypes';
 import Contractor from '../../pages/Contractor';
+import Customers from '../../pages/Customers';
+import Bookings from '../../pages/Bookings';
 
 /* And designs library */
 
@@ -44,6 +46,8 @@ export default function AppLayout() {
                     <Route index element={<Dashboard />} />
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="service-list" element={<ServicesList />} />
+                    <Route path="customer-list" element={<Customers />} />
+                    <Route path="bookings-list" element={<Bookings />} />
                     <Route path="service-type" element={<ServicesType />} />
                     <Route path="contractor-list" element={<Contractor />} />
                 </Route>

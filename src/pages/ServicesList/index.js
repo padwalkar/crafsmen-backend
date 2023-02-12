@@ -63,7 +63,7 @@ export default function ServicesList() {
         else {
             dataStatus = <NoData handleButtonClick={handleAddClick} btnText={'Add new service'} imageWidth={'110px'} noDataTitle={'No Data Found'} noDataText={'We did not find any service created. You can add new by clicking on below button'} />;
         }
-        return (<tr><td colSpan={4}>{dataStatus}</td></tr>);
+        return (<tr><td colSpan={5}>{dataStatus}</td></tr>);
     }
 
     const handleDelClick = (event, id) => {
@@ -121,11 +121,11 @@ export default function ServicesList() {
     return (<>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Services List- Crafsmen</title>
+            <title>Services List- Craftsmen</title>
         </Helmet>
         <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
             <SubHeading
-                mainApp={'Crafsmen'}
+                mainApp={'Craftsmen'}
                 pageBreadcrumb={'Services'}
                 pageTitle={'Services List'}
             />

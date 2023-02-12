@@ -59,6 +59,8 @@ export default function EditServiceType({ openEditServiceDialog, setOpenEditServ
     const [serviceTitle, setServiceTitle] = useState(editRecord.serviceTitle);
     const [serviceExcerpt, setServiceExcerpt] = useState(editRecord.serviceExcept);
     const [serviceDescription, setServiceDescription] = useState(editRecord.serviceDescription);
+    const [file, setFile] = useState('');
+    const [serviceImage, setServiceImage] = useState(editRecord.serviceImage);
 
     const simpleValidator = useRef(new SimpleReactValidator());
 
@@ -85,14 +87,17 @@ export default function EditServiceType({ openEditServiceDialog, setOpenEditServ
     const handleServiceExcerptChange = (e) => { setServiceExcerpt(e.target.value) }
     const handleServiceDescriptionChange = (e) => { setServiceDescription(e.target.value) }
 
-    const handleSaveClick = () => {
+    const handleSaveClick = async () => {
 
         if (simpleValidator.current.allValid()) {
+            let fileUrl = await uploadFile();
+            console.log("I am the file url::", fileUrl)
             let postBody = {
                 "serviceTypeId": parseInt(serviceType),
                 "serviceTitle": serviceTitle,
                 "serviceDescription": serviceDescription,
-                "serviceExcept": serviceExcerpt
+                "serviceExcept": serviceExcerpt,
+                "serviceImage": fileUrl
             }
             setLoading(true);
             axios
@@ -135,6 +140,41 @@ export default function EditServiceType({ openEditServiceDialog, setOpenEditServ
             simpleValidator.current.showMessages();
         }
 
+    }
+
+
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]);
+    }
+
+    const uploadFile = () => {
+        if (file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data',
+                    'Authorization': `Bearer ${localStorage.getItem("__t")}`
+                },
+            };
+            setLoading(true);
+            return axios
+                .post('/uploadFile', formData, config)
+                .then(op => {
+                    setLoading(false);
+                    if (op && op.data && op.data.message === "IMAGE_UPLOADED") {
+                        setServiceImage(op.data.result);
+                        return (op.data.result);
+                    }
+                })
+                .catch(e => {
+                    console.log("Exception: ", e);
+                    setLoading(false);
+                })
+        }
+        else {
+            return serviceImage;
+        }
     }
 
     return (
@@ -201,6 +241,10 @@ export default function EditServiceType({ openEditServiceDialog, setOpenEditServ
                         onBlur={() => simpleValidator.current.showMessageFor('serviceDescription')}
                     />
                     {!_.isEmpty(simpleValidator.current) && simpleValidator.current.message('serviceDescription', serviceDescription, 'required')}
+                </div>
+                <div className="form-group mb-3">
+                    <label htmlFor="serviceImage" className="form-label">Service Image</label>
+                    <input className="form-control" onChange={handleFileChange} type="file" id="serviceImage" accept="image/png, image/jpeg, image/jpg" />
                 </div>
             </DialogContent>
             <DialogActions>

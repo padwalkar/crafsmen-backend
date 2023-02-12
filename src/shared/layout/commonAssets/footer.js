@@ -7,7 +7,7 @@ export default function Footer(props) {
                 <div className="row align-items-center justify-content-lg-between">
                     <div className="col-lg-12 mb-lg-0 mb-4">
                         <div className="copyright text-center text-sm text-muted">
-                            All Rights Reserved © Crafsmen
+                            All Rights Reserved © Craftsmen
                         </div>
                     </div>
                 </div>

@@ -164,4 +164,65 @@ module.exports = function (app) {
   );
   /* ---- ./Contractor List ---- */
 
+
+  /* Customers List */
+  app.use(
+    '/getCustomersList',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/customer`;
+      }
+    })
+  );
+
+  app.use(
+    '/delCustomer',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/customer/${req.query.i}`;
+      }
+    })
+  );
+
+  /* ./Customers List */
+
+  /* Bookings List */
+  app.use(
+    '/getBookingsList',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/bookings`;
+      }
+    })
+  );
+  app.use(
+    '/updateBooking',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/bookings/${req.query.i}`;
+      }
+    })
+  );
+  /* ./Bookings List */
+
+  app.use(
+    '/uploadFile',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/upload-image`;
+      }
+    })
+  );
+
+
 };

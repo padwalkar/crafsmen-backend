@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/img/crafsmen-logo.png'
+import logo from '../../../assets/img/craftsmen-logo.png'
 import { NavLink } from 'react-router-dom';
 
 export default function Sidebar(props) {
@@ -62,7 +62,7 @@ export default function Sidebar(props) {
                         </NavLink >
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link  " href="/customers">
+                        <NavLink className={(navData) => (navData.isActive ? 'active nav-link' : 'nav-link')} to="/customer-list">
                             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" >
                                     <title>credit-card</title>
@@ -79,7 +79,7 @@ export default function Sidebar(props) {
                                 </svg>
                             </div>
                             <span className="nav-link-text ms-1">Customers</span>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className={(navData) => (navData.isActive ? 'active nav-link' : 'nav-link')} to="/contractor-list">
@@ -102,7 +102,8 @@ export default function Sidebar(props) {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link  " href="/bookings">
+                        <NavLink className={(navData) => { return (navData.isActive ? 'active nav-link' : 'nav-link') }} to="/bookings-list">
+                            {/* <a className="nav-link  " href="/bookings"> */}
                             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" >
                                     <title>customer-support</title>
@@ -120,7 +121,7 @@ export default function Sidebar(props) {
                                 </svg>
                             </div>
                             <span className="nav-link-text ms-1">Bookings</span>
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="nav-item mt-3">
                         <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Master Entries</h6>
@@ -145,10 +146,10 @@ export default function Sidebar(props) {
                             <span className="nav-link-text ms-1">Service Type</span>
                         </NavLink>
                     </li>
-                    <li className="nav-item mt-3">
+                    {/* <li className="nav-item mt-3">
                         <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Reports</h6>
-                    </li>
-                    <li className="nav-item">
+                    </li> */}
+                    {/* <li className="nav-item">
                         <a className="nav-link  " href="/customer-reports">
                             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" >
@@ -169,8 +170,8 @@ export default function Sidebar(props) {
                             </div>
                             <span className="nav-link-text ms-1">Customer Reports</span>
                         </a>
-                    </li>
-                    <li className="nav-item">
+                    </li> */}
+                    {/* <li className="nav-item">
                         <a className="nav-link  " href="/contractor-reports">
                             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" >
@@ -191,7 +192,7 @@ export default function Sidebar(props) {
                             </div>
                             <span className="nav-link-text ms-1">Contractor Reports</span>
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </aside>

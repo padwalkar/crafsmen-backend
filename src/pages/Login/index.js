@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 import curvedImage from '../../assets/img/curved6.jpg';
-import logo from '../../assets/img/crafsmen-logo.png';
+import logo from '../../assets/img/craftsmen-logo.png';
 
 import SimpleReactValidator from 'simple-react-validator';
 import _ from 'lodash';
@@ -62,7 +62,7 @@ export default function Login() {
     return (<>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Login - Crafsmen</title>
+            <title>Login - Craftsmen</title>
         </Helmet>
 
         <div className="container position-sticky z-index-sticky top-0">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import Footer from "../../shared/layout/commonAssets/footer";
@@ -6,9 +6,25 @@ import SubHeading from "../../shared/layout/commonAssets/subHeading";
 import { NavLink } from 'react-router-dom';
 import waves from '../../assets/img/waves-white.svg';
 import booking from '../../assets/img/booking.png';
+import axios from "../../shared/helper/apiHelper";
 
 
 export default function Dashboard() {
+
+    const [counts, setCounts] = useState(null);
+
+    useEffect(() => {
+        axios
+            .get(`/getDashboardCount`)
+            .then(op => {
+                if (op && op.data && op.data.result) {
+                    setCounts(op.data.result[0]);
+                }
+            })
+            .catch(e => {
+                console.log("Exception: ", e);
+            })
+    }, []);
 
     return (<>
         <Helmet>
@@ -34,13 +50,14 @@ export default function Dashboard() {
                                         <div className="numbers">
                                             <p className="text-sm mb-0 text-capitalize font-weight-bold">Today's Bookings</p>
                                             <h5 className="font-weight-bolder mb-0">
-                                                $53,000
+                                                {(counts && counts.bookingcount) ? counts.bookingcount : '-'}
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="col-4 text-end">
                                         <div className="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                            <i className="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                            {/* <i className="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i> */}
+                                            <i class="fas fa-calendar-week text-lg opacity-10"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -55,13 +72,14 @@ export default function Dashboard() {
                                         <div className="numbers">
                                             <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Customers</p>
                                             <h5 className="font-weight-bolder mb-0">
-                                                2,300
+                                                {(counts && counts.customercount) ? counts.customercount : '-'}
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="col-4 text-end">
                                         <div className="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                            <i className="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                            {/* <i className="ni ni-world text-lg opacity-10" aria-hidden="true"></i> */}
+                                            <i class="fas fa-users text-lg opacity-10"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -76,13 +94,14 @@ export default function Dashboard() {
                                         <div className="numbers">
                                             <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Contractors</p>
                                             <h5 className="font-weight-bolder mb-0">
-                                                +3,462
+                                                {(counts && counts.contractorcount) ? counts.contractorcount : '-'}
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="col-4 text-end">
                                         <div className="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                            <i className="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                            {/* <i className="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> */}
+                                            <i class="fas fa-users-cog text-lg opacity-10"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -97,13 +116,14 @@ export default function Dashboard() {
                                         <div className="numbers">
                                             <p className="text-sm mb-0 text-capitalize font-weight-bold">Total Services</p>
                                             <h5 className="font-weight-bolder mb-0">
-                                                $103,430
+                                                {(counts && counts.servicecount) ? counts.servicecount : '-'}
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="col-4 text-end">
                                         <div className="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                            <i className="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                            {/* <i className="ni ni-cart text-lg opacity-10" aria-hidden="true"></i> */}
+                                            <i class="fas fa-tools text-lg opacity-10"></i>
                                         </div>
                                     </div>
                                 </div>

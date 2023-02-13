@@ -9,6 +9,7 @@ import ServicesType from '../../pages/ServicesTypes';
 import Contractor from '../../pages/Contractor';
 import Customers from '../../pages/Customers';
 import Bookings from '../../pages/Bookings';
+import ServicePrice from '../../pages/ServicePrice';
 
 /* And designs library */
 
@@ -48,6 +49,7 @@ export default function AppLayout() {
                     <Route path="service-list" element={<ServicesList />} />
                     <Route path="customer-list" element={<Customers />} />
                     <Route path="bookings-list" element={<Bookings />} />
+                    <Route path="service-price-list" element={<ServicePrice />} />
                     <Route path="service-type" element={<ServicesType />} />
                     <Route path="contractor-list" element={<Contractor />} />
                 </Route>

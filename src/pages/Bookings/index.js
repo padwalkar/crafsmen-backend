@@ -71,19 +71,11 @@ export default function Bookings() {
     const handleChangeClick = () => {
         setLoading(true);
         let bookingData = {
-            // "contractorId": bookingRecord,
-            // "serviceId": bookingRecord,
-            // "bookingDateTimeFrom": moment(bookingRecord.bookingDateTimeFrom).format("YYYY-MM-DD HH:mm:ss"),
-            // "bookingDateTimeTo": moment(bookingRecord.bookingDateTimeTo).format("YYYY-MM-DD HH:mm:ss"),
-            // "servicePriceId": bookingRecord,
             "bookingStatus": bookingStatus
         };
-        console.log("I am oj::", bookingData)
-        // return ;
         axios
             .put(`/updateBooking?i=${bookingRecord.bookingId}`, bookingData)
             .then(op => {
-                // console.log("I am output::", op);
                 setLoading(false);
                 if (!_.isEmpty(op) && !_.isEmpty(op.data) && op.data.message === 'BOOKING_UPDATED') {
                     loadList();

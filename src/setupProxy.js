@@ -129,6 +129,7 @@ module.exports = function (app) {
       }
     })
   );
+  
 
   app.use(
     '/deleteContractor',
@@ -213,6 +214,49 @@ module.exports = function (app) {
   );
   /* ./Bookings List */
 
+  /* Service Price List */
+  app.use(
+    '/getServicePriceList',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/service-price`;
+      }
+    })
+  );
+  app.use(
+    '/addNewServicePrice',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/service-price`;
+      }
+    })
+  );
+  app.use(
+    '/deleteServicePrice',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/service-price/${req.query.i}`;
+      }
+    })
+  );
+  app.use(
+    '/updateServicePrice',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/service-price/${req.query.i}`;
+      }
+    })
+  );
+  /* ./Service Price List */
+
   app.use(
     '/uploadFile',
     createProxyMiddleware({
@@ -220,6 +264,17 @@ module.exports = function (app) {
       changeOrigin: true,
       pathRewrite: function (path, req) {
         return `/api/v1/entrance/upload-image`;
+      }
+    })
+  );
+
+  app.use(
+    '/getDashboardCount',
+    createProxyMiddleware({
+      target: API_URL,
+      changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return `/api/v1/entrance/dashboard-count`;
       }
     })
   );
